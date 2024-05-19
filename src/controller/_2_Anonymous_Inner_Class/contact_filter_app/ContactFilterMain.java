@@ -16,5 +16,16 @@ public class ContactFilterMain {
 
         System.out.println(Arrays.toString(contactAged20To35.toArray()));
 
+
+        List<Contact> contactMaleAged20To35 = contactService.findContacts(allContacts, new ContactFilterCriteria() {
+            @Override
+            public boolean match(Contact contact) {
+                return 20 >= contact.getAge() && contact.getAge() <= 35
+                        && contact.getGender() == Gender.MALE;
+            }
+        });
+
+        System.out.println(Arrays.toString(contactMaleAged20To35.toArray()));
+
     }
 }
