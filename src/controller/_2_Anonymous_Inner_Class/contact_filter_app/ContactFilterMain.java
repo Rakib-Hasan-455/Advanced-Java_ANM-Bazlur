@@ -27,5 +27,13 @@ public class ContactFilterMain {
 
         System.out.println(Arrays.toString(contactMaleAged20To35.toArray()));
 
+
+        List<Contact> contactFemaleAged20To35 = contactService.findContacts(allContacts, (Contact contact) ->  {
+                return 20 >= contact.getAge() && contact.getAge() <= 35
+                        && contact.getGender() == Gender.FEMALE;
+            });
+
+        System.out.println(Arrays.toString(contactFemaleAged20To35.toArray()));
+
     }
 }
